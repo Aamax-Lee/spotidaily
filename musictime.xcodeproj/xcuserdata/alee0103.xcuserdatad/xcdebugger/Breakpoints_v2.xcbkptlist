@@ -1,0 +1,1334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "B149CCF4-9540-4240-8990-3392F4B595BB"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "10EA3BBA-A2EA-4399-A8C5-885A50AA9523"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "New Group/AuthenticationManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "signInURL"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "80CBC3C8-93D9-4B86-9B1B-015727A830A1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MainViewControllers/QOTDViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D7E3230E-F45F-44B1-BB5D-FD533AF5F986"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FirebaseController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "getSOTDofTheDay(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D7E3230E-F45F-44B1-BB5D-FD533AF5F986 - e6f28f3185f09acd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "musictime.FirebaseController.getSOTDofTheDay() -&gt; musictime.SOTD"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/FirebaseController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "D7E3230E-F45F-44B1-BB5D-FD533AF5F986 - 56832e126477b421"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "musictime.FirebaseController.getSOTDofTheDay(completion: (Swift.Optional&lt;musictime.SOTD&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/FirebaseController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "864D9CDD-94A6-4A0E-A74F-0FF0477D1289"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MainViewControllers/SOTDViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "864D9CDD-94A6-4A0E-A74F-0FF0477D1289 - e9f88459265236e3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "musictime.SOTDViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/MainViewControllers/SOTDViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "1396">
+               </Location>
+               <Location
+                  uuid = "864D9CDD-94A6-4A0E-A74F-0FF0477D1289 - 56a0f2d8dbedffe5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;(userName: Swift.String, videoURL: Foundation.URL)&gt;) -&gt; () in musictime.SOTDViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/MainViewControllers/SOTDViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "160">
+               </Location>
+               <Location
+                  uuid = "864D9CDD-94A6-4A0E-A74F-0FF0477D1289 - b1a25125e4d50aee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Array&lt;(userName: Swift.String, videoURL: Foundation.URL)&gt;) -&gt; () in musictime.SOTDViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/MainViewControllers/SOTDViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9E13BE24-8DA8-479C-A746-4709BA68F998"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FirebaseController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "287"
+            endingLineNumber = "287"
+            landmarkName = "fetchVideosFromFirestore(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DF35AFCC-E12A-47A1-9CAC-FD61B4BB7A09"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MainViewControllers/SOTDViews/SOTDViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "396"
+            endingLineNumber = "396"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BE2605E0-BD09-44CD-9C25-874F501418AE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Managers/APICaller.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "getCurrentUserProfile(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ADA57BBB-D640-4A68-8C60-3FDDA06D8065"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OtherViewControllers/authViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "webView(_:didStartProvisionalNavigation:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F69B90B1-4693-41DF-8E1F-681D45F34846"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OtherViewControllers/authViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "webView(_:didStartProvisionalNavigation:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2AA59F94-3877-45CA-9258-2E4BCEA72454"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OtherViewControllers/authViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "webView(_:didStartProvisionalNavigation:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1C6A42EF-5E83-4B0A-9616-465AB5C8B79D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Managers/AuthenticationManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "exchangeCodeForToken(code:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1C6A42EF-5E83-4B0A-9616-465AB5C8B79D - ddfe3c4158fd44d0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "musictime.AuthManager.exchangeCodeForToken(code: Swift.String, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/Managers/AuthenticationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "3396">
+               </Location>
+               <Location
+                  uuid = "1C6A42EF-5E83-4B0A-9616-465AB5C8B79D - 4f2c0393bd45bcc1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in musictime.AuthManager.exchangeCodeForToken(code: Swift.String, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/Managers/AuthenticationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "164">
+               </Location>
+               <Location
+                  uuid = "1C6A42EF-5E83-4B0A-9616-465AB5C8B79D - 4f2c0393bd45bcc1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in musictime.AuthManager.exchangeCodeForToken(code: Swift.String, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/Managers/AuthenticationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "176">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3D0B2C52-5F9E-4D75-B7D5-0E3700AE98B2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Managers/APICaller.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "getCurrentUserProfile(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DCE79E0E-8B2A-4440-A108-33EDFD83A5DA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MainViewControllers/SOTDViews/SOTDViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "init(style:reuseIdentifier:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ACB765BD-A27E-481A-BDF7-54F9F3E1BB66"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MainViewControllers/SOTDViews/SOTDViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "commonInit()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "ACB765BD-A27E-481A-BDF7-54F9F3E1BB66 - a97cafcaa43d02bd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "musictime.VideoTableViewCell.commonInit() -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/MainViewControllers/SOTDViews/SOTDViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "185"
+                  endingLineNumber = "185"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "ACB765BD-A27E-481A-BDF7-54F9F3E1BB66 - a97cafcaa43d029a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "musictime.VideoTableViewCell.commonInit() -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/MainViewControllers/SOTDViews/SOTDViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "186"
+                  endingLineNumber = "186"
+                  offsetFromSymbolStart = "76">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1E2EE23A-CBA4-4E50-975E-9F98F5E7A096"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FirebaseController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "409"
+            endingLineNumber = "409"
+            landmarkName = "fetchImagesFromFirestore(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8AFCA54C-1BAE-4571-B5CC-F00230F7ABFC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FirebaseController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "390"
+            endingLineNumber = "390"
+            landmarkName = "fetchImagesFromFirestore(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8AFCA54C-1BAE-4571-B5CC-F00230F7ABFC - 63726d116547ea31"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in musictime.FirebaseController.fetchImagesFromFirestore(completion: (Swift.Array&lt;(userName: Swift.String, imageURL: Foundation.URL, userImage: Swift.String)&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/FirebaseController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "427"
+                  endingLineNumber = "427"
+                  offsetFromSymbolStart = "456">
+               </Location>
+               <Location
+                  uuid = "8AFCA54C-1BAE-4571-B5CC-F00230F7ABFC - 63726d116547ea31"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in musictime.FirebaseController.fetchImagesFromFirestore(completion: (Swift.Array&lt;(userName: Swift.String, imageURL: Foundation.URL, userImage: Swift.String)&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/FirebaseController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "427"
+                  endingLineNumber = "427"
+                  offsetFromSymbolStart = "552">
+               </Location>
+               <Location
+                  uuid = "8AFCA54C-1BAE-4571-B5CC-F00230F7ABFC - 63726d116547ea31"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in musictime.FirebaseController.fetchImagesFromFirestore(completion: (Swift.Array&lt;(userName: Swift.String, imageURL: Foundation.URL, userImage: Swift.String)&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/FirebaseController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "427"
+                  endingLineNumber = "427"
+                  offsetFromSymbolStart = "332">
+               </Location>
+               <Location
+                  uuid = "8AFCA54C-1BAE-4571-B5CC-F00230F7ABFC - 63726d116547ea31"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in musictime.FirebaseController.fetchImagesFromFirestore(completion: (Swift.Array&lt;(userName: Swift.String, imageURL: Foundation.URL, userImage: Swift.String)&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/FirebaseController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "427"
+                  endingLineNumber = "427"
+                  offsetFromSymbolStart = "428">
+               </Location>
+               <Location
+                  uuid = "8AFCA54C-1BAE-4571-B5CC-F00230F7ABFC - 63726d116547f061"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in musictime.FirebaseController.fetchImagesFromFirestore(completion: (Swift.Array&lt;(userName: Swift.String, imageURL: Foundation.URL, userImage: Swift.String)&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/FirebaseController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "475"
+                  endingLineNumber = "475"
+                  offsetFromSymbolStart = "232">
+               </Location>
+               <Location
+                  uuid = "8AFCA54C-1BAE-4571-B5CC-F00230F7ABFC - 63726d116547f061"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in musictime.FirebaseController.fetchImagesFromFirestore(completion: (Swift.Array&lt;(userName: Swift.String, imageURL: Foundation.URL, userImage: Swift.String)&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/FirebaseController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "475"
+                  endingLineNumber = "475"
+                  offsetFromSymbolStart = "328">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "92C6B907-CB8D-463C-AC53-4099EE00180F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FirebaseController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "420"
+            endingLineNumber = "420"
+            landmarkName = "fetchImagesFromFirestore(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "92C6B907-CB8D-463C-AC53-4099EE00180F - 741fa06eeb209b9c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.URL&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in musictime.FirebaseController.fetchImagesFromFirestore(completion: (Swift.Array&lt;(userName: Swift.String, imageURL: Foundation.URL, userImage: Swift.String)&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/FirebaseController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "503"
+                  endingLineNumber = "503"
+                  offsetFromSymbolStart = "1028">
+               </Location>
+               <Location
+                  uuid = "92C6B907-CB8D-463C-AC53-4099EE00180F - 741fa06eeb209b9c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.URL&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in musictime.FirebaseController.fetchImagesFromFirestore(completion: (Swift.Array&lt;(userName: Swift.String, imageURL: Foundation.URL, userImage: Swift.String)&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/FirebaseController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "503"
+                  endingLineNumber = "503"
+                  offsetFromSymbolStart = "604">
+               </Location>
+               <Location
+                  uuid = "92C6B907-CB8D-463C-AC53-4099EE00180F - 741fa06eeb209b9c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.URL&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in musictime.FirebaseController.fetchImagesFromFirestore(completion: (Swift.Array&lt;(userName: Swift.String, imageURL: Foundation.URL, userImage: Swift.String)&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/FirebaseController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "503"
+                  endingLineNumber = "503"
+                  offsetFromSymbolStart = "720">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3D3BBB42-5374-4C4D-B999-2DAAE2D1427A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FirebaseController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "374"
+            endingLineNumber = "374"
+            landmarkName = "fetchImagesFromFirestore(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3D3BBB42-5374-4C4D-B999-2DAAE2D1427A - 41eeb6922a692382"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "musictime.FirebaseController.fetchImagesFromFirestore(completion: (Swift.Array&lt;(userName: Swift.String, imageURL: Foundation.URL, userImage: Swift.String, trackImage: Swift.String, trackName: Swift.String, trackArtist: Swift.String)&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/FirebaseController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "587"
+                  endingLineNumber = "587"
+                  offsetFromSymbolStart = "1300">
+               </Location>
+               <Location
+                  uuid = "3D3BBB42-5374-4C4D-B999-2DAAE2D1427A - 41eeb6922a692382"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "musictime.FirebaseController.fetchImagesFromFirestore(completion: (Swift.Array&lt;(userName: Swift.String, imageURL: Foundation.URL, userImage: Swift.String, trackImage: Swift.String, trackName: Swift.String, trackArtist: Swift.String)&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/FirebaseController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "587"
+                  endingLineNumber = "587"
+                  offsetFromSymbolStart = "160">
+               </Location>
+               <Location
+                  uuid = "3D3BBB42-5374-4C4D-B999-2DAAE2D1427A - c2e18ecc076b191b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in musictime.FirebaseController.fetchImagesFromFirestore(completion: (Swift.Array&lt;(userName: Swift.String, imageURL: Foundation.URL, userImage: Swift.String, trackImage: Swift.String, trackName: Swift.String, trackArtist: Swift.String)&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/FirebaseController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "587"
+                  endingLineNumber = "587"
+                  offsetFromSymbolStart = "236">
+               </Location>
+               <Location
+                  uuid = "3D3BBB42-5374-4C4D-B999-2DAAE2D1427A - 6d4c5552b5eee3c4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.URL&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in musictime.FirebaseController.fetchImagesFromFirestore(completion: (Swift.Array&lt;(userName: Swift.String, imageURL: Foundation.URL, userImage: Swift.String, trackImage: Swift.String, trackName: Swift.String, trackArtist: Swift.String)&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/FirebaseController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "587"
+                  endingLineNumber = "587"
+                  offsetFromSymbolStart = "648">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A5B59D65-AE78-4FBB-8FAF-814D7C1B252E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MainViewControllers/EventViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "EventViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "353A946B-695D-4938-8297-A8AB7CDA3B99"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "musictime/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9A0E239E-1C56-4ED9-8549-23A577CC7EF2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "musictime/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2F47C02C-8ACD-45F5-B67B-DBE4BD2C7B77"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "musictime/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2F47C02C-8ACD-45F5-B67B-DBE4BD2C7B77 - 7f9f98bb95f5e7d8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in musictime.AppDelegate.application(_: __C.UIApplication, didFinishLaunchingWithOptions: Swift.Optional&lt;Swift.Dictionary&lt;__C.UIApplicationLaunchOptionsKey, Any&gt;&gt;) -&gt; Swift.Bool"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/musictime/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  uuid = "2F47C02C-8ACD-45F5-B67B-DBE4BD2C7B77 - acb62650916263b6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in musictime.AppDelegate.application(_: __C.UIApplication, didFinishLaunchingWithOptions: Swift.Optional&lt;Swift.Dictionary&lt;__C.UIApplicationLaunchOptionsKey, Any&gt;&gt;) -&gt; Swift.Bool"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/musictime/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "298">
+               </Location>
+               <Location
+                  uuid = "2F47C02C-8ACD-45F5-B67B-DBE4BD2C7B77 - c1e964099290ef94"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in musictime.AppDelegate.application(_: __C.UIApplication, didFinishLaunchingWithOptions: Swift.Optional&lt;Swift.Dictionary&lt;__C.UIApplicationLaunchOptionsKey, Any&gt;&gt;) -&gt; Swift.Bool"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/musictime/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "313">
+               </Location>
+               <Location
+                  uuid = "2F47C02C-8ACD-45F5-B67B-DBE4BD2C7B77 - a87dc4da0c47a985"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in musictime.AppDelegate.application(_: __C.UIApplication, didFinishLaunchingWithOptions: Swift.Optional&lt;Swift.Dictionary&lt;__C.UIApplicationLaunchOptionsKey, Any&gt;&gt;) -&gt; Swift.Bool"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/musictime/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8B277974-F725-4F68-B52A-29150B7CB4EC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FirebaseController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
+            landmarkName = "uploadImageToFirebase(imageURL:track:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E300C975-0C14-4871-B0E2-D977597A7011"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FirebaseController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
+            landmarkName = "uploadImageToFirebase(imageURL:track:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E300C975-0C14-4871-B0E2-D977597A7011 - ede8a8f90aba584c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.URL&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;FirebaseStorage.StorageMetadata&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in musictime.FirebaseController.uploadImageToFirebase(imageURL: Foundation.URL, track: musictime.TrackObject, completion: (Swift.Bool, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/FirebaseController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "242"
+                  endingLineNumber = "242"
+                  offsetFromSymbolStart = "517">
+               </Location>
+               <Location
+                  uuid = "E300C975-0C14-4871-B0E2-D977597A7011 - ede8a8f90aba584c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.URL&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;FirebaseStorage.StorageMetadata&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in musictime.FirebaseController.uploadImageToFirebase(imageURL: Foundation.URL, track: musictime.TrackObject, completion: (Swift.Bool, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/FirebaseController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "242"
+                  endingLineNumber = "242"
+                  offsetFromSymbolStart = "1191">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4E573BCD-1D0C-409F-8213-F5683FF31942"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "musictime/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "4E573BCD-1D0C-409F-8213-F5683FF31942 - eb1091ba02411006"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "musictime.AppDelegate.databaseController.getter : Swift.Optional&lt;musictime.DatabaseProtocol&gt;"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/musictime/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "4E573BCD-1D0C-409F-8213-F5683FF31942 - cd1485d5b8d3ca58"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "musictime.AppDelegate.databaseController.setter : Swift.Optional&lt;musictime.DatabaseProtocol&gt;"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/musictime/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "4E573BCD-1D0C-409F-8213-F5683FF31942 - c04ab05ae4b2ac49"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "musictime.AppDelegate.databaseController.modify : Swift.Optional&lt;musictime.DatabaseProtocol&gt;"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/musictime/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "4E573BCD-1D0C-409F-8213-F5683FF31942 - c5b0fbbbead69f26"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "musictime.AppDelegate.databaseController.modify : Swift.Optional&lt;musictime.DatabaseProtocol&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "15">
+               </Location>
+               <Location
+                  uuid = "4E573BCD-1D0C-409F-8213-F5683FF31942 - 72edd3e44b530e63"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "musictime.AppDelegate.init() -&gt; musictime.AppDelegate"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/musictime/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C33E6B6E-8997-4331-936B-73F258EFCF3E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "musictime/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "797741AA-03A9-402C-A821-63B7A662E1B1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "musictime/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "checkVideoUploadStreak()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EB641D2E-FC7C-443B-AC08-781BFAB5E115"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FirebaseController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
+            landmarkName = "fetchVideosFromFirestore(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2F1D8F65-8541-41F8-BB75-C8DA6941CCD4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FirebaseController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "322"
+            endingLineNumber = "322"
+            landmarkName = "fetchVideosFromFirestore(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0CC8DD72-CAD0-4C45-84D4-C5B1C04C765C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FirebaseController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "304"
+            endingLineNumber = "304"
+            landmarkName = "fetchVideosFromFirestore(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0CC8DD72-CAD0-4C45-84D4-C5B1C04C765C - f2ac6fbf0006f0f4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in musictime.FirebaseController.fetchVideosFromFirestore(completion: (Swift.Array&lt;(userName: Swift.String, videoURL: Foundation.URL, userImage: Swift.String)&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/FirebaseController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "466"
+                  endingLineNumber = "466"
+                  offsetFromSymbolStart = "244">
+               </Location>
+               <Location
+                  uuid = "0CC8DD72-CAD0-4C45-84D4-C5B1C04C765C - f2ac6fbf0006f0f4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in musictime.FirebaseController.fetchVideosFromFirestore(completion: (Swift.Array&lt;(userName: Swift.String, videoURL: Foundation.URL, userImage: Swift.String)&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/FirebaseController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "466"
+                  endingLineNumber = "466"
+                  offsetFromSymbolStart = "340">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4AF8622C-9CD3-4B73-AF71-CD5820FC5AC7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MainViewControllers/SOTDViews/SOTDViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "469"
+            endingLineNumber = "469"
+            landmarkName = "tableView(_:commit:forRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4AF8622C-9CD3-4B73-AF71-CD5820FC5AC7 - 712845e72d8cbf14"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in musictime.SOTDViewController.tableView(_: __C.UITableView, commit: __C.UITableViewCellEditingStyle, forRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/MainViewControllers/SOTDViews/SOTDViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "572"
+                  endingLineNumber = "572"
+                  offsetFromSymbolStart = "1244">
+               </Location>
+               <Location
+                  uuid = "4AF8622C-9CD3-4B73-AF71-CD5820FC5AC7 - 712845e72d8cbf14"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in musictime.SOTDViewController.tableView(_: __C.UITableView, commit: __C.UITableViewCellEditingStyle, forRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/MainViewControllers/SOTDViews/SOTDViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "572"
+                  endingLineNumber = "572"
+                  offsetFromSymbolStart = "1276">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0FCC0309-59F9-4059-BBD9-EE9F2E0B9285"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MainViewControllers/SOTDViews/SOTDViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "472"
+            endingLineNumber = "472"
+            landmarkName = "tableView(_:commit:forRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0FCC0309-59F9-4059-BBD9-EE9F2E0B9285 - 712845e72d8cbe8b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in musictime.SOTDViewController.tableView(_: __C.UITableView, commit: __C.UITableViewCellEditingStyle, forRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/MainViewControllers/SOTDViews/SOTDViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "575"
+                  endingLineNumber = "575"
+                  offsetFromSymbolStart = "1440">
+               </Location>
+               <Location
+                  uuid = "0FCC0309-59F9-4059-BBD9-EE9F2E0B9285 - bc6d62cef641f6cc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;(userName: Swift.String, videoURL: Foundation.URL, userImage: Swift.String)&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in musictime.SOTDViewController.tableView(_: __C.UITableView, commit: __C.UITableViewCellEditingStyle, forRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/MainViewControllers/SOTDViews/SOTDViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "575"
+                  endingLineNumber = "575"
+                  offsetFromSymbolStart = "160">
+               </Location>
+               <Location
+                  uuid = "0FCC0309-59F9-4059-BBD9-EE9F2E0B9285 - d9daa967c842fdce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Array&lt;(userName: Swift.String, videoURL: Foundation.URL, userImage: Swift.String)&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in musictime.SOTDViewController.tableView(_: __C.UITableView, commit: __C.UITableViewCellEditingStyle, forRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/MainViewControllers/SOTDViews/SOTDViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "575"
+                  endingLineNumber = "575"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A1797386-5697-4273-BF94-4979D590C55C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FirebaseController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "425"
+            endingLineNumber = "425"
+            landmarkName = "fetchImagesFromFirestore(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "863138C2-EA32-4810-8D93-E015CD3B2F48"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MainViewControllers/EventViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
+            landmarkName = "didTapButton(in:url:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BC5E5D9E-8BF8-44EF-B12C-9F294A6F98AD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MainViewControllers/EventViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "onUrlButtonPress(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BC5E5D9E-8BF8-44EF-B12C-9F294A6F98AD - e15ae0a3f853c302"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "musictime.EventsTableViewCell.onUrlButtonPress(Any) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/MainViewControllers/EventViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "228">
+               </Location>
+               <Location
+                  uuid = "BC5E5D9E-8BF8-44EF-B12C-9F294A6F98AD - e15ae0a3f853c302"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "musictime.EventsTableViewCell.onUrlButtonPress(Any) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/MainViewControllers/EventViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "320">
+               </Location>
+               <Location
+                  uuid = "BC5E5D9E-8BF8-44EF-B12C-9F294A6F98AD - e15ae0a3f853c302"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "musictime.EventsTableViewCell.onUrlButtonPress(Any) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/MainViewControllers/EventViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "244">
+               </Location>
+               <Location
+                  uuid = "BC5E5D9E-8BF8-44EF-B12C-9F294A6F98AD - e15ae0a3f853c302"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "musictime.EventsTableViewCell.onUrlButtonPress(Any) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/MainViewControllers/EventViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "336">
+               </Location>
+               <Location
+                  uuid = "BC5E5D9E-8BF8-44EF-B12C-9F294A6F98AD - e15ae0a3f853c33d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "musictime.EventsTableViewCell.onUrlButtonPress(Any) -&gt; ()"
+                  moduleName = "musictime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/alee0103/Desktop/musictime/MainViewControllers/EventViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "228">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "699C2B91-492F-4836-889D-867AC8E53037"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MainViewControllers/EventsViews/WebViewViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D58BF722-8B59-4466-95EE-79E82E7A2A72"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MainViewControllers/EventViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F3CA31A7-6CF4-4B9D-B43F-B8D8F3487499"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MainViewControllers/EventViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
+            landmarkName = "scrollViewDidScroll(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

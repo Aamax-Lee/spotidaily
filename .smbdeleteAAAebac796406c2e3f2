@@ -1,0 +1,929 @@
+//
+//  FirebaseController.swift
+//  musictime
+//
+//  Created by Aamax Lee on 21/4/2024.
+//
+
+//import Foundation
+import UIKit
+//import FirebaseFirestoreSwift
+//import FirebaseFirestore
+import Firebase
+import FirebaseFirestoreSwift
+import FirebaseStorage
+//import FirebaseFirestoreSwift
+
+class FirebaseController: NSObject, DatabaseProtocol {
+    
+    
+    
+    
+    var database: Firestore
+    var authController: Auth
+//    var currentUser: FirebaseAuth.User?
+    var userId: String?
+    var userName: String?
+    
+    let defaults = UserDefaults.standard
+    
+    override init() {
+        FirebaseApp.configure()
+        database = Firestore.firestore()
+        authController = Auth.auth()
+        super.init()
+    }
+    
+    func getUserId() -> String {
+        return self.userId ?? "No user id"
+    }
+    
+    
+    
+//    func login(userId: String) {
+////        authController.sign
+//        let userRef = database.collection("Users").document(userId)
+//    }
+    
+    func createUserDocument(userId: String) {
+        
+//        let userRef = database.collection("Users").document(userId).setData(["spotifyId": userId])
+        
+        
+        // Create a new team document in the "teams" collection
+//        let teamName = userId + " Team"
+//        let newTeamRef = database.collection("teams").document()
+//        let userTeamId = newTeamRef.documentID
+    }
+    
+    func storeSpotifyUserID(userID: String, email: String, name: String, userImage: String) {
+//        print("storeSpotifyUserID")
+        self.userId = userID
+        self.defaults.set(userID, forKey: "userId")
+        self.defaults.set(name, forKey: "userName")
+        self.defaults.set(userImage, forKey: "userImage")
+        print(userImage)
+        self.userName = name
+//        self.defaults.set(
+//        let userRef = database.collection("Users").document(userID)
+        
+        authController.signIn(withEmail: email, password: userID) { (authDataResult, error) in
+            if let authDataResult = authDataResult {
+                //                self.currentTeam = Team()
+//                self.currentUser = authDataResult.user
+            } else if error != nil {
+                
+                self.authController.createUser(withEmail: email, password: userID) { (authDataResult, error) in
+                    if let authDataResult = authDataResult {
+//                        self.currentUser = authDataResult.user
+                        self.createUserDocument(userId: userID)
+//                        completion(true)
+//                        old id: cTMHsUuFdQYB9bc48MRpFKYBGei2
+                    } else if error != nil {
+        //                self.currentUser = authDataResult.user
+//                        completion(false) // Login failed
+                    }
+                }
+            }
+        }
+        
+//        userRef.setData(["spotifyUserID": userID]) {
+//            error in
+//            if let error = error {
+//                return
+//            } else {
+//                
+//            }
+//        }
+    }
+    
+    func getSOTDofTheDay(completion: @escaping (SOTD?) -> Void) {
+        let sotd = SOTD()
+
+        let itemRef = database.collection("itemOfTheDay").document("cPdGqhCpB16lfund8BQ4")
+
+        itemRef.getDocument { (document, error) in
+            guard let document = document, document.exists, let data = document.data() else {
+                print("Error fetching document: \(String(describing: error))")
+                completion(nil) // Call the completion handler with nil if there's an error
+                return
+            }
+
+            // Extract data from Firestore document
+            guard let songName = data["songName"] as? String,
+                  let artistName = data["artistName"] as? String,
+                  let quote = data["quote"] as? String,
+                  let imageURLString = data["image"] as? String else {
+                print("Error: Unable to parse document data")
+                completion(nil) // Call the completion handler with nil if data parsing fails
+                return
+            }
+
+            // Update SOTD object with fetched data
+            sotd.name = songName
+            sotd.artist = artistName
+            sotd.image = imageURLString 
+            sotd.quote = quote
+
+            completion(sotd) // Call the completion handler with the fetched SOTD object
+        }
+    }
+    
+    
+
+    
+    func uploadVideoToFirebase(videoURL: URL, completion: @escaping (Bool, Error?) -> Void) {
+//            guard let videoURL = videoURL else {
+                print("No video to upload.")
+//        print(userId)
+//                return
+//            }
+        guard let userImage = self.defaults.string(forKey: "userImage") else {
+//            completion(false, nil, nil) // User ID is nil, return false
+            return
+        }
+            
+            let storageRef = Storage.storage().reference().child("videos").child("\(UUID().uuidString).mp4")
+            let videoPath = storageRef.fullPath
+            storageRef.putFile(from: videoURL, metadata: nil) { (metadata, error) in
+                if let error = error {
+                    print("Error uploading video: \(error)")
+                    completion(false, error)
+                    return
+                }
+                
+                storageRef.downloadURL { (url, error) in
+                    if let downloadURL = url {
+                        print("Video uploaded successfully. Download URL: \(downloadURL)")
+                        self.database.collection("SOTDVideoUploads").document(self.userId!).setData(["userVideo": videoPath, "userName": self.userName!, "userImage": userImage], merge: true) { error in
+                            if let error = error {
+                                print("Error updating user document: \(error)")
+                                completion(false, error)
+                            } else {
+                                print("User document updated successfully.")
+                                completion(true, nil)
+                            }
+                        }
+                        // Here you can do further processing with the download URL, such as saving it to Firestore.
+                    } else {
+                        print("Error getting download URL: \(String(describing: error))")
+                        completion(false, error)
+                    }
+                }
+            }
+        }
+    
+    
+    
+//    func uploadImageToFirebase(imageURL: URL, completion: @escaping (Bool, Error?) -> Void) {
+//        // Read image data from the URL
+//        guard let imageData = try? Data(contentsOf: imageURL) else {
+//            print("Failed to read image data from URL.")
+//            completion(false, nil)
+//            return
+//        }
+//        
+//        // Convert image data to base64 string
+//        let imageBase64String = imageData.base64EncodedString(options: .lineLength64Characters)
+//        
+//        // Get user image information
+//        guard let userImage = self.defaults.string(forKey: "userImage") else {
+//            print("User image not found.")
+//            completion(false, nil)
+//            return
+//        }
+//        
+//        // Upload image data and user information to Firestore
+//        self.database.collection("SOTDImageUploads").document(self.userId!).setData(["userImage": userImage, "imageData": imageBase64String], merge: true) { error in
+//            if let error = error {
+//                print("Error updating user document: \(error)")
+//                completion(false, error)
+//            } else {
+//                print("User document updated successfully.")
+//                completion(true, nil)
+//            }
+//        }
+//    }
+    func uploadImageToFirebase(imageURL: URL, completion: @escaping (Bool, Error?) -> Void) {
+        guard let imageData = try? Data(contentsOf: imageURL) else {
+            print("Failed to load image data.")
+            let error = NSError(domain: "com.example.app", code: 400, userInfo: [NSLocalizedDescriptionKey: "Failed to load image data."])
+            completion(false, error)
+            return
+        }
+        
+        guard let userImage = self.defaults.string(forKey: "userImage") else {
+            print("User image not found.")
+            let error = NSError(domain: "com.example.app", code: 401, userInfo: [NSLocalizedDescriptionKey: "User image not found."])
+            completion(false, error)
+            return
+        }
+        
+        let storageRef = Storage.storage().reference().child("images").child("\(UUID().uuidString).jpg")
+        let imagePath = storageRef.fullPath
+        
+        storageRef.putData(imageData, metadata: nil) { (metadata, error) in
+            if let error = error {
+                print("Error uploading image: \(error)")
+                completion(false, error)
+                return
+            }
+            
+            storageRef.downloadURL { (url, error) in
+                if let downloadURL = url {
+                    print("Image uploaded successfully. Download URL: \(downloadURL)")
+                    self.database.collection("QOTDImageUploads").document(self.userId!).setData(["userImage": userImage, "userName": self.userName!, "imageData": imagePath], merge: true) { error in
+                        if let error = error {
+                            print("Error updating user document: \(error)")
+                            completion(false, error)
+                        } else {
+                            print("User document updated successfully.")
+                            completion(true, nil)
+                        }
+                    }
+                    // Here you can do further processing with the download URL, such as saving it to Firestore.
+                } else {
+                    print("Error getting download URL: \(String(describing: error))")
+                    completion(false, error)
+                }
+            }
+        }
+    }
+
+    func uploadImageeToFirebase(imageURL: URL, completion: @escaping (Bool, Error?) -> Void) {
+        // Create a reference to the Firebase Storage location
+        let storageRef = Storage.storage().reference().child("images").child("\(UUID().uuidString).jpg")
+
+        guard let userImage = self.defaults.string(forKey: "userImage") else {
+                    print("User image not found.")
+                    completion(false, nil)
+                    return
+                }
+            
+        // Upload image file to Firebase Storage
+        storageRef.putFile(from: imageURL, metadata: nil) { (metadata, error) in
+            if let error = error {
+                print("Error uploading image to Firebase Storage: \(error)")
+                completion(false, error)
+            } else {
+                // Get the download URL of the uploaded image
+                storageRef.downloadURL { (url, error) in
+                    if let error = error {
+                        print("Error getting download URL: \(error)")
+                        completion(false, error)
+                    } else if let downloadURL = url {
+                        // Store the download URL in Firestore
+                        self.database.collection("QOTDImageUploads").document(self.userId!).setData(["userImage": userImage, "userName": self.userName!, "imageData": downloadURL.absoluteString], merge: true) { error in
+                            if let error = error {
+                                print("Error updating user document with image URL: \(error)")
+                                completion(false, error)
+                            } else {
+                                print("User document updated successfully with image URL.")
+                                completion(true, nil)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+    
+    func checkUserSubmittedVideoExists(completion: @escaping (Bool, String?, URL?) -> Void) {
+        guard let userId = self.defaults.string(forKey: "userId") else {
+            completion(false, nil, nil) // User ID is nil, return false
+            return
+        }
+        
+        let userVideoRef = database.collection("SOTDVideoUploads").document(userId)
+        print("otw")
+        userVideoRef.getDocument { (document, error) in
+            if let error = error {
+                print("Error fetching document: \(error)")
+                completion(false, nil, nil)
+                return
+            }
+
+            guard let document = document, document.exists else {
+                print("Document does not exist")
+                completion(false, nil, nil)
+                return
+            }
+            
+
+            // Video document exists
+            if let data = document.data(),
+               let userName = data["userName"] as? String,
+               let videoReference = data["userVideo"] as? String {
+                // Get the download URL for the video reference
+                Storage.storage().reference().child(videoReference).downloadURL { (url, error) in
+                    if let url = url {
+                        completion(true, userName, url)
+                    } else {
+                        completion(false, nil, nil) // Unable to get video URL
+                    }
+                }
+            } else {
+                print("Unable to parse user name or video reference")
+                completion(false, nil, nil)
+            }
+        }
+
+    }
+
+    func fetchVideosFromFirestore(completion: @escaping ([(userName: String, videoURL: URL, userImage: String)]) -> Void) {
+//
+        var videos: [(userName: String, videoURL: URL, userImage: String)] = []
+
+        guard let userId = UserDefaults.standard.string(forKey: "userId") else {
+            print("User ID not found in UserDefaults")
+            completion([])
+            return
+        }
+
+        self.database.collection("SOTDVideoUploads").getDocuments { (snapshot, error) in
+            if let error = error {
+                print("Error fetching documents: \(error)")
+                completion([])
+                return
+            }
+            
+            
+            // Process fetched documents
+            guard let snapshot = snapshot else {
+                print("Error fetching documents:")
+                completion([])
+                return
+            }
+            
+            var userVideoIndex: Int? = nil
+            
+            for (index, document) in snapshot.documents.enumerated() {
+                
+                if let userName = document["userName"] as? String,
+                   let videoReference = document["userVideo"] as? String,
+                    let userImage = document["userImage"] as? String {
+                    // Get download URL for video reference
+                    Storage.storage().reference().child(videoReference).downloadURL { (url, error) in
+                        if let url = url {
+//                            print("url: ", url)
+                            // Check if the document ID matches the user ID
+                            if document.documentID == userId {
+                                // Store the index of the user's video
+                                userVideoIndex = index
+                                
+                                // Store user's video information in persistent storage
+                                UserDefaults.standard.set(["userName": userName, "videoURL": url.absoluteString, "userImage": userImage], forKey: "SOTDuserVideo")
+//                                videos.append((userName: userName, videoURL: url))
+                            }
+                                // Add other users' video data to array
+                            videos.append((userName: userName, videoURL: url, userImage: userImage))
+                            print("index: ", index, " username: ", userName)
+//                            print()
+                            
+                            
+                            // If all videos are fetched, call completion handler
+                            if videos.count == snapshot.documents.count {
+                                
+                                if userVideoIndex == nil {
+                                    UserDefaults.standard.set("", forKey: "SOTDuserVideo")
+                                } else {
+                                    
+                                    if let userVideoURLString = UserDefaults.standard.dictionary(forKey: "SOTDuserVideo") {
+                                        if let userVideoIndex = videos.firstIndex(where: { $0.videoURL.absoluteString == userVideoURLString["videoURL"] as? String }) {
+                                            videos.remove(at: userVideoIndex)
+                                        }
+                                    }
+                                }
+                                
+                                completion(videos)
+                            }
+                        } else {
+                            print("Error getting video URL: \(error?.localizedDescription ?? "Unknown error")")
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
+//    func fetchImagesFromFirestore(completion: @escaping ([(userName: String, imageURL: URL, userImage: String)]) -> Void) {
+//        var images: [(userName: String, imageURL: URL, userImage: String)] = []
+//
+//        guard let userId = UserDefaults.standard.string(forKey: "userId") else {
+//            print("User ID not found in UserDefaults")
+//            completion([])
+//            return
+//        }
+//
+//        self.database.collection("QOTDImageUploads").getDocuments { (snapshot, error) in
+//            if let error = error {
+//                print("Error fetching documents: \(error)")
+//                completion([])
+//                return
+//            }
+//            
+//            // Process fetched documents
+//            guard let snapshot = snapshot else {
+//                print("Error fetching documents:")
+//                completion([])
+//                return
+//            }
+//
+//            for document in snapshot.documents {
+//                guard let userName = document["userName"] as? String,
+//                      let imageURLString = document["imageData"] as? String,
+//                      let imageURL = URL(string: imageURLString),
+//                      let userImage = document["userImage"] as? String else {
+//                    continue
+//                }
+//
+//                images.append((userName: userName, imageURL: imageURL, userImage: userImage))
+//            }
+//
+//            // Store the user's image URL in UserDefaults
+//            if let userImage = images.first(where: { $0.userImage == userId }) {
+//                UserDefaults.standard.set(["userName": userImage.userName, "imageURL": userImage.imageURL.absoluteString, "userImage": userImage.userImage], forKey: "SOTDUserImage")
+//            } else {
+//                // Clear UserDefaults if user's image is not found
+//                UserDefaults.standard.removeObject(forKey: "SOTDUserImage")
+//            }
+//
+//            // Remove the user's image from the list of fetched images
+//            if let userImageIndex = images.firstIndex(where: { $0.userImage == userId }) {
+//                images.remove(at: userImageIndex)
+//            }
+//
+//            completion(images)
+//        }
+//    }
+    
+    func fetchImagesFromFirestore(completion: @escaping ([(userName: String, imageURL: URL, userImage: String)]) -> Void) {
+        var images: [(userName: String, imageURL: URL, userImage: String)] = []
+
+        guard let userId = UserDefaults.standard.string(forKey: "userId") else {
+            print("User ID not found in UserDefaults")
+            completion([])
+            return
+        }
+
+        self.database.collection("QOTDImageUploads").getDocuments { (snapshot, error) in
+            if let error = error {
+                print("Error fetching documents: \(error)")
+                completion([])
+                return
+            }
+            
+            // Process fetched documents
+            guard let snapshot = snapshot else {
+                print("Error fetching documents:")
+                completion([])
+                return
+            }
+            
+            if snapshot.documents.count == 0 {
+                UserDefaults.standard.removeObject(forKey: "QOTDUserImage")
+                print("set to nil ")
+            }
+            
+            for document in snapshot.documents {
+                guard let userName = document["userName"] as? String,
+                      let imageURLString = document["imageData"] as? String,
+                      //                      let imageURL = URL(string: imageURLString),
+                      let userImage = document["userImage"] as? String else {
+//                    print("error fetching documents 2")
+                    continue
+                }
+                Storage.storage().reference().child(imageURLString).downloadURL { (url, error) in
+                    
+                    if let url {
+                        print(url)
+                        if document.documentID == userId {
+                            
+                            UserDefaults.standard.set(["userName": userName, "imageURL": url.absoluteString, "userImage": userImage], forKey: "QOTDUserImage")
+                            print("userdefaults set")
+//                            
+                            guard let storedData = UserDefaults.standard.dictionary(forKey: "QOTDUserImage") else {
+                                print("qotduserimage not found in UserDefaults")
+                                return
+                            }
+                        }
+                        images.append((userName: userName, imageURL: url, userImage: userImage))
+//                        print("images in process: ", images)
+//                        print("images.count: ", images.count)
+                    } else if let error {
+                        print(error)
+                    }
+                    
+                    
+                    if images.count == snapshot.documents.count {
+                                    if let userVideoURLString = UserDefaults.standard.dictionary(forKey: "QOTDUserImage") {
+//                                        print("userVideoURLString ", userVideoURLString)
+//                                        print(userVideoURLString["imageURL"])
+                                        if let userVideoIndex = images.firstIndex(where: { $0.imageURL.absoluteString == userVideoURLString["imageURL"] as? String }) {
+                                            print("REMOVAL HERE")
+                                            images.remove(at: userVideoIndex)
+                                        } else {
+//                                            if userVideoIndex == nil {
+                                            UserDefaults.standard.removeObject(forKey: "QOTDUserImage")
+                                            print("set to nil ")
+//                                            }
+                                        }
+                                    }
+                        
+//                        print("images list: ",images)
+                        
+                        completion(images)
+                    }
+                }
+            }
+        }
+    }
+
+//
+//    func fetchVideossFromFirestore(completion: @escaping ([(userName: String, videoURL: URL, userImage: String)]) -> Void) {
+////
+//        var videos: [(userName: String, videoURL: URL, userImage: String)] = []
+//
+//        guard let userId = UserDefaults.standard.string(forKey: "userId") else {
+//            print("User ID not found in UserDefaults")
+//            completion([])
+//            return
+//        }
+//
+//        self.database.collection("SOTDVideoUploads").getDocuments { (snapshot, error) in
+//            if let error = error {
+//                print("Error fetching documents: \(error)")
+//                completion([])
+//                return
+//            }
+//            
+//            
+//            // Process fetched documents
+//            guard let snapshot = snapshot else {
+//                print("Error fetching documents:")
+//                completion([])
+//                return
+//            }
+//            
+//            var userVideoIndex: Int? = nil
+//            
+//            for (index, document) in snapshot.documents.enumerated() {
+//                
+//                if let userName = document["userName"] as? String,
+//                   let videoReference = document["userVideo"] as? String,
+//                    let userImage = document["userImage"] as? String {
+//                    // Get download URL for video reference
+//                    Storage.storage().reference().child(videoReference).downloadURL { (url, error) in
+//                        if let url = url {
+//                            // Check if the document ID matches the user ID
+//                            if document.documentID == userId {
+//                                // Store the index of the user's video
+//                                userVideoIndex = index
+//                                
+//                                // Store user's video information in persistent storage
+//                                UserDefaults.standard.set(["userName": userName, "videoURL": url.absoluteString, "userImage": userImage], forKey: "SOTDuserVideo")
+////                                videos.append((userName: userName, videoURL: url))
+//                            }
+//                                // Add other users' video data to array
+//                            videos.append((userName: userName, videoURL: url, userImage: userImage))
+//                            print("index: ", index, " username: ", userName)
+////                            print()
+//                            
+//                            
+//                            // If all videos are fetched, call completion handler
+//                            if videos.count == snapshot.documents.count {
+//                                
+//                                if userVideoIndex == nil {
+//                                    UserDefaults.standard.set("", forKey: "SOTDuserVideo")
+//                                } else {
+//                                    
+//                                    if let userVideoURLString = UserDefaults.standard.dictionary(forKey: "SOTDuserVideo") {
+//                                        if let userVideoIndex = videos.firstIndex(where: { $0.videoURL.absoluteString == userVideoURLString["videoURL"] as? String }) {
+//                                            videos.remove(at: userVideoIndex)
+//                                        }
+//                                    }
+//                                }
+//                                
+//                                completion(videos)
+//                            }
+//                        } else {
+//                            print("Error getting video URL: \(error?.localizedDescription ?? "Unknown error")")
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
+//    
+    
+    
+    
+    
+    func deleteUserSOTDFromFirestore(completion: @escaping (Error?) -> Void) {
+        guard let userId = UserDefaults.standard.string(forKey: "userId") else {
+            print("User ID not found in UserDefaults")
+            completion(nil) // Return without performing deletion if user ID is not found
+            return
+        }
+        
+        // Reference to the Firestore collection
+        let collectionRef = self.database.collection("SOTDVideoUploads")
+        
+        // Delete the document with the user's ID
+        collectionRef.document(userId).delete { error in
+            if let error = error {
+                print("Error deleting document: \(error)")
+                completion(error)
+            } else {
+                print("Document successfully deleted")
+                // Perform any additional cleanup if needed
+                completion(nil)
+            }
+        }
+    }
+    
+    func deleteUserQOTDFromFirestore(completion: @escaping (Error?) -> Void) {
+        guard let userId = UserDefaults.standard.string(forKey: "userId") else {
+            print("User ID not found in UserDefaults")
+            completion(nil) // Return without performing deletion if user ID is not found
+            return
+        }
+        
+        // Reference to the Firestore collection
+        let collectionRef = self.database.collection("QOTDImageUploads")
+        
+        // Delete the document with the user's ID
+        collectionRef.document(userId).delete { error in
+            if let error = error {
+                print("Error deleting document: \(error)")
+                completion(error)
+            } else {
+                print("Document successfully deleted")
+                // Perform any additional cleanup if needed
+                completion(nil)
+            }
+        }
+    }
+    
+//    func 
+
+    func resetSOTDStreak() {
+        guard let userId = self.defaults.string(forKey: "userId") else {
+//            completion(false, nil, nil) // User ID is nil, return false
+            return
+        }
+        let userRef = database.collection("Users").document(userId)
+        
+        // Check if the user document already exists
+        userRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                // Document exists, update the SOTDStreak field to 0
+                userRef.updateData(["SOTDStreak": 0]) { error in
+                    if let error = error {
+                        print("Error updating user document: \(error)")
+                    } else {
+                        print("SOTDStreak field updated successfully for user \(String(describing: userId))")
+                    }
+                }
+            } else {
+                // Document doesn't exist, create a new user document with SOTDStreak set to 0
+                userRef.setData(["spotifyId": userId, "SOTDStreak": 0]) { error in
+                    if let error = error {
+                        print("Error creating user document: \(error)")
+                    } else {
+                        print("User document created successfully for user \(String(describing: userId)) with SOTDStreak initialized to 0")
+                    }
+                }
+            }
+        }
+    }
+    
+    func increaseSOTDStreak() {
+        guard let userId = self.defaults.string(forKey: "userId") else {
+//            completion(false, nil, nil) // User ID is nil, return false
+            return
+        }
+        let userRef = database.collection("Users").document(userId)
+        
+        // Check if the user document already exists
+        userRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                // Document exists, update the SOTDStreak field to 0
+                userRef.updateData(["SOTDStreak": FieldValue.increment(Int64(1))]) { error in
+                    if let error = error {
+                        print("Error updating user document: \(error)")
+                    } else {
+                        print("SOTDStreak field updated successfully for user \(String(describing: userId))")
+                    }
+                }
+            } else {
+                // Document doesn't exist, create a new user document with SOTDStreak set to 0
+                userRef.setData(["spotifyId": userId, "SOTDStreak": 1]) { error in
+                    if let error = error {
+                        print("Error creating user document: \(error)")
+                    } else {
+                        print("User document created successfully for user \(String(describing: userId)) with SOTDStreak initialized to 0")
+                    }
+                }
+            }
+        }
+    }
+    
+    func decreaseSOTDStreak() {
+        guard let userId = self.defaults.string(forKey: "userId") else {
+//            completion(false, nil, nil) // User ID is nil, return false
+            return
+        }
+        let userRef = database.collection("Users").document(userId)
+        
+        // Check if the user document already exists
+        userRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                // Document exists, update the SOTDStreak field to 0
+                userRef.updateData(["SOTDStreak": FieldValue.increment(Int64(-1))]) { error in
+                    if let error = error {
+                        print("Error updating user document: \(error)")
+                    } else {
+                        print("SOTDStreak field updated successfully for user \(String(describing: userId))")
+                    }
+                }
+            } else {
+                // Document doesn't exist, create a new user document with SOTDStreak set to 0
+                userRef.setData(["spotifyId": userId, "SOTDStreak": 1]) { error in
+                    if let error = error {
+                        print("Error creating user document: \(error)")
+                    } else {
+                        print("User document created successfully for user \(String(describing: userId)) with SOTDStreak initialized to 0")
+                    }
+                }
+            }
+        }
+    }
+    
+    
+
+    func getSOTDStreak(completion: @escaping (Int) -> Void) {
+        guard let userId = self.defaults.string(forKey: "userId") else {
+//            completion(false, nil, nil) // User ID is nil, return false
+            completion(0)
+            return
+        }
+        let userRef = database.collection("Users").document(userId)
+        
+        let sotd = SOTD()
+
+//        let itemRef = database.collection("itemOfTheDay").document("cPdGqhCpB16lfund8BQ4")
+
+        userRef.getDocument { (document, error) in
+            guard let document = document, document.exists, let data = document.data() else {
+                print("Error fetching document: \(String(describing: error))")
+                completion(0) // Call the completion handler with nil if there's an error
+                return
+            }
+
+            guard let sotdStreak = data["SOTDStreak"] as? Int else {
+                completion(0)
+                return
+            }
+            completion(sotdStreak)
+        }
+    }
+            
+            // Extract data from Firestore document
+//            guard let songName = data["songName"] as? String,
+//                  let artistName = data["artistName"] as? String,
+//                  let _ = data["quote"] as? String,
+//                  let imageURLString = data["image"] as? String else {
+//                print("Error: Unable to parse document data")
+//                completion(nil) // Call the completion handler with nil if data parsing fails
+//                return
+//            }
+//
+//            // Update SOTD object with fetched data
+//            sotd.name = songName
+//            sotd.artist = artistName
+//            sotd.image = imageURLString // Assuming you have imageURL property in your SOTD model
+//
+//            completion(sotd) // Call the completion handler with the fetched SOTD object
+       
+    
+//    storageRef.downloadURL { (url, error) in
+//                if let downloadURL = url {
+//                    print("Video uploaded successfully. Download URL: \(downloadURL)")
+//                    
+//                    // Update Firestore document for the current user with video reference
+//                    let db = Firestore.firestore()
+//                    let userRef = db.collection("users").document(currentUserID)
+//                    userRef.setData(["userVideo": downloadURL.absoluteString], merge: true) { error in
+//                        if let error = error {
+//                            print("Error updating user document: \(error)")
+//                        } else {
+//                            print("User document updated successfully.")
+//                        }
+//                    }
+//                } else {
+//                    print("Error getting download URL: \(String(describing: error))")
+//                }
+//            }
+//        }
+    
+    
+//    func fetchFirestoreData() {
+//            let db = Firestore.firestore()
+//            let itemRef = db.collection("item").document("your_document_id")
+//
+//            itemRef.getDocument { (document, error) in
+//                if let document = document, document.exists {
+//                    if let data = document.data() {
+//                        if let name = data["name"] as? String {
+////                            self.nameLabel.text = name
+//                        }
+//                        if let artist = data["artist"] as? String {
+////                            self.artistLabel.text = artist
+//                        }
+//                        if let imageURLString = data["imageURL"] as? String,
+//                           let imageURL = URL(string: imageURLString) {
+//                            // Download the image from the URL and set it to the image view
+//                            URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
+//                                if let data = data {
+//                                    DispatchQueue.main.async {
+////                                        self.imageView.image = UIImage(data: data)
+//                                    }
+//                                }
+//                            }.resume()
+//                        }
+//                    }
+//                } else {
+//                    print("Document does not exist")
+//                }
+//            }
+//        }
+    
+    
+    
+    
+    
+    func cleanup() {
+        
+    }
+    
+    func addListener(listener: DatabaseListener) {
+        
+    }
+    
+    func removeListener(listener: DatabaseListener) {
+        
+    }
+    
+    func login(email: String, password: String, completion: @escaping (Bool) -> Void) {
+        
+    }
+    
+    func signup(email: String, password: String, completion: @escaping (Bool) -> Void) {
+        
+    }
+    
+    
+}
+//class FirebaseController: NSObject, DatabaseProtocol {
+//    
+////    var currentTeam: Team?
+////    let DEFAULT_TEAM_NAME = "Default Team"
+//    var listeners = MulticastDelegate<DatabaseListener>()
+////    var heroList: [Superhero]
+////    var defaultTeam: Team
+////    var
+//    
+//    var authController: Auth
+//    var database: Firestore
+////    var heroesRef: CollectionReference?
+////    var teamsRef: CollectionReference?
+//    var currentUser: FirebaseAuth.User?
+//    
+//    func cleanup()
+//    
+//    func addListener(listener: DatabaseListener)
+//    func removeListener(listener: DatabaseListener)
+//    
+////    func addSuperhero(name: String, abilities: String, universe: Universe) -> Superhero
+//    
+////    func deleteSuperhero(hero: Superhero)
+//    
+////    var defaultTeam: Team {get}
+////    var currentTeam: Team? {get}
+//    
+////    func addTeam(teamName: String) -> Team
+////    func deleteTeam(team: Team)
+////    func addHeroToTeam(hero: Superhero, team: Team) -> Bool
+////    func removeHeroFromTeam(hero: Superhero, team: Team)
+//    
+//    func login(email: String, password: String, completion: @escaping (Bool) -> Void)
+//    func signup(email: String, password: String, completion: @escaping (Bool) -> Void)
+//}
+
+

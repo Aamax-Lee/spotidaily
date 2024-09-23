@@ -1,0 +1,604 @@
+//
+//  SOTDViewController.swift
+//  musictime
+//
+//  Created by Aamax Lee on 25/4/2024.
+//
+
+import UIKit
+import FirebaseStorage
+import MobileCoreServices
+import AVFoundation
+import UIKit
+import AVKit
+
+class VideoTableViewCell: UITableViewCell {
+//    @IBOutlet weak var videoDisplayView: sotdVideoDisplayView!
+    @IBOutlet weak var sotdButton: UIButton!
+    
+    var videoDisplayView: sotdVideoDisplayView
+    var usernameLabel: UILabel = UILabel()
+    
+    func hideVideo() {
+        
+        videoDisplayView.isHidden = true
+    }
+    
+    func hideButton() {
+        sotdButton.isHidden = true
+    }
+    
+    func usernameLabelText(username: String){
+        self.usernameLabel.text = username
+    }
+    
+//    var videoDisplayView: VideoDisplayView
+        
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+            // Initialize videoDisplayView before calling super.init
+            self.videoDisplayView = sotdVideoDisplayView(frame: .zero)
+            super.init(style: style, reuseIdentifier: reuseIdentifier)
+            commonInit()
+        }
+        
+        required init?(coder aDecoder: NSCoder) {
+            // Initialize videoDisplayView before calling super.init(coder:)
+            self.videoDisplayView = sotdVideoDisplayView(frame: .zero)
+            super.init(coder: aDecoder)
+            commonInit()
+        }
+        
+        private func commonInit() {
+            // Add videoDisplayView to cell's content view
+            contentView.addSubview(usernameLabel)
+                    usernameLabel.translatesAutoresizingMaskIntoConstraints = false
+                    NSLayoutConstraint.activate([
+                        usernameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+                        usernameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+                        usernameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20)
+                    ])
+                    
+                    // Add videoDisplayView to cell's content view
+                    contentView.addSubview(videoDisplayView)
+                    videoDisplayView.translatesAutoresizingMaskIntoConstraints = false
+                    NSLayoutConstraint.activate([
+                        videoDisplayView.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: 8),
+                        videoDisplayView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+                        videoDisplayView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+                        videoDisplayView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+                    ])
+            
+            usernameLabel.textColor = .white
+        }
+    
+    
+    //    @IBOutlet weak var videoDisplayView: sotdVideoDisplayView!
+    // Add any additional UI elements you want to display alongside the video
+}
+
+class SOTDViewController: UIViewController, UITableViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDelegate {
+    
+    let imagePicker = UIImagePickerController()
+    var videoURL: URL?
+    let defaults = UserDefaults.standard
+    let videoDisplayView = sotdVideoDisplayView()
+    var database: DatabaseProtocol?
+    
+    var videos: [(userName: String, videoURL: URL)] = []
+    
+    private let refreshControl = UIRefreshControl()
+    
+    let SECTION_UPLOAD = 0
+    let SECTION_VIDEOS = 1
+    
+    
+    @IBOutlet weak var sotdArtist: UILabel!
+    @IBOutlet weak var sotdSong: UILabel!
+    @IBOutlet weak var sotdImage: UIImageView!
+//    @IBOutlet weak var sotdButton: UIButton!
+    @IBOutlet weak var sotdTable: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        
+        self.database = appDelegate?.databaseController
+        
+        imagePicker.delegate = self
+        view.backgroundColor = UIColor(red: 98/255, green: 98/255, blue: 98/255, alpha: 1.0)
+        let layer = CAGradientLayer()
+        layer.frame = view.bounds
+        layer.colors = [UIColor(red: 98/255, green: 98/255, blue: 98/255, alpha: 1.0), UIColor.black.cgColor]
+        
+        
+        
+        //        layer.startPoint = CGPoint()
+        //        layer.locations = [
+        //            0,   // whiteColor
+        //            0.23, // blackColor
+        //        ]
+        
+        view.layer.insertSublayer(layer, at: 0)
+//        self.showVideoDisplayView()
+        sotdTable.dataSource = self
+        sotdTable.delegate = self
+//        sotdTable.rowHeight = 285
+        // Do any additional setup after loading the view.
+    }
+    
+    //    func fetchVideosFromFirestore() {
+    //            // Call the function passing a completion handler
+    //        database!.fetchVideosFromFirestore { [weak self] fetchedVideos in
+    //                // Assign fetched videos to self.videos
+    //                self?.videos = fetchedVideos
+    //
+    //                // Reload table view data after fetching videos
+    //                DispatchQueue.main.async {
+    //                    self?.tableView.reloadData()
+    //                }
+    //            }
+    //        }
+    @objc private func refreshData(_ sender: Any) {
+            // Reload your data here
+            // For example:
+        self.sotdTable.reloadData()
+            
+            // End refreshing
+            refreshControl.endRefreshing()
+        }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.database?.fetchVideosFromFirestore() { [weak self] fetchedVideos in
+            // Assign fetched videos to self.videos
+            self?.videos = fetchedVideos
+            //            print("vidoes")
+            //            print(self?.videos)
+            
+            // Reload table view data after fetching videos
+            DispatchQueue.main.async {
+                self?.sotdTable.reloadData()
+            }
+            
+            
+        }
+        sotdTable.refreshControl = refreshControl
+                
+                // Set up the refresh control action
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+                
+        
+        
+        //        self.sotdTable.reloadData()
+        self.database?.getSOTDofTheDay {sotd in
+            if let sotd = sotd {
+                // Use the fetched SOTD object here
+                //                print(sotd.name)
+                //                print(sotd.artist)
+                //                print(sotd.image)
+                //                self.SOTDSong.text = sotd.name
+                //                self.SOTDArtist.text = sotd.artist
+                
+                self.defaults.set(sotd.artist, forKey: "ArtistName")
+                self.defaults.set(sotd.name, forKey: "SongName")
+                self.defaults.set(sotd.image, forKey: "ImageURL")
+                
+                //                let storageRef = Storage.storage().reference()
+                //                let fileRef = storageRef.child(sotd.image!)
+                //                fileRef.getData(maxSize: 5 * 1024 * 1024) {
+                //                    data, error in
+                //
+                //                    if error == nil && data != nil {
+                //                        print("addng image")
+                //                        DispatchQueue.main.async {
+                //                            self.SOTDImage.image = UIImage(data: data!)
+                //                        }
+                //                    } else {
+                //                        print(error)
+                //                    }
+            }
+            
+            let artistName = self.defaults.string(forKey: "ArtistName")
+            let songName = self.defaults.string(forKey: "SongName")
+            let imageURL = self.defaults.string(forKey: "ImageURL")
+            
+            self.sotdSong.text = songName
+            self.sotdArtist.text = artistName
+            
+            let storageRef = Storage.storage().reference()
+            let fileRef = storageRef.child(imageURL!)
+            fileRef.getData(maxSize: 5 * 1024 * 1024) { [self]
+                data, error in
+                
+                if error == nil && data != nil {
+                    //                print("addng image")
+                    if let resizedImage = resizeImage(UIImage(data: data!)!, targetSize: CGSize(width: 89, height: 89)) {
+                        DispatchQueue.main.async {
+                            self.sotdImage.image = resizedImage
+                        }
+                    } else {
+                        print(error as Any)
+                    }
+                }
+            }
+        }
+        
+        
+        redirectIfNeeded()
+    }
+    
+    func resizeImage(_ image: UIImage, targetSize: CGSize) -> UIImage? {
+        let renderer = UIGraphicsImageRenderer(size: targetSize)
+        return renderer.image { (context) in
+            image.draw(in: CGRect(origin: .zero, size: targetSize))
+        }
+    }
+    //    private let signInButton: UIButton = {
+    //        let button = UIButton()
+    //        button.backgroundColor = .white
+    //        button.setTitle("Sign in with spotify", for: .normal)
+    //        button.setTitleColor(.blue, for: .normal)
+    //        return button
+    //    }()
+    
+    //    @IBAction func signInButton(_ sender: Any) {
+    //        self.performSegue(withIdentifier: "SOTDTodayVCSegue", sender: nil)
+    //    }
+    
+    func redirectIfNeeded() {
+        let calendar = Calendar.current
+        let currentDate = Date()
+        
+        // Check if it's after 12 PM Australian time
+        //            let australiaTimeZone = TimeZone(identifier: "Australia/Sydney")!
+        let australiaCalendar = Calendar(identifier: .gregorian)
+        let australiaDate = australiaCalendar.date(bySettingHour: 12, minute: 0, second: 0, of: currentDate)!
+        
+        if currentDate > australiaDate {
+            // Check if the user has been redirected today
+            let lastRedirectDate = UserDefaults.standard.value(forKey: "LastRedirectDate") as? Date ?? Date.distantPast
+            let lastRedirectDay = calendar.startOfDay(for: lastRedirectDate)
+            let currentDay = calendar.startOfDay(for: currentDate)
+            
+            if currentDay > lastRedirectDay {
+                // Redirect the user to the new view controller
+                UserDefaults.standard.set(currentDate, forKey: "LastRedirectDate")
+                performSegue(withIdentifier: "SOTDTodayVCSegue", sender: nil)
+            } else {
+                //                                        self.performSegue(withIdentifier: "SOTDTodayVCSegue", sender: nil)
+                //                    navigationController?.pushViewController(SOTDTodayViewController(), animated: true)
+                //                    toTabVCSegue
+            }
+        }
+    }
+    
+    @IBAction func sotdButtonPress(_ sender: Any) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let uploadAction = UIAlertAction(title: "Photo & Video Lbrary", style: .default) { _ in
+            self.pickVideoFromGallery()
+        }
+        
+        alertController.addAction(uploadAction)
+        
+        let takeVideoAction = UIAlertAction(title: "Camera", style: .default) { _ in
+            //                        self.recordNewVideo()
+            self.performSegue(withIdentifier: "toCameraSegue", sender: self)
+        }
+        alertController.addAction(takeVideoAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+        
+    }
+    
+//    func SOTDButtonPress() {
+//        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+//        
+//        let uploadAction = UIAlertAction(title: "Photo & Video Lbrary", style: .default) { _ in
+//            self.pickVideoFromGallery()
+//        }
+//        
+//        alertController.addAction(uploadAction)
+//        
+//        let takeVideoAction = UIAlertAction(title: "Camera", style: .default) { _ in
+//            //                        self.recordNewVideo()
+//            self.performSegue(withIdentifier: "toCameraSegue", sender: self)
+//        }
+//        alertController.addAction(takeVideoAction)
+//        
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//        alertController.addAction(cancelAction)
+//        
+//        present(alertController, animated: true, completion: nil)
+//        
+//    }
+    
+    func pickVideoFromGallery() {
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.mediaTypes = [UTType.movie.identifier as String]
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func recordNewVideo() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePicker.sourceType = .camera
+            imagePicker.mediaTypes = [UTType.movie.identifier as String]
+            present(imagePicker, animated: true, completion: nil)
+        } else {
+            print("Camera is not available.")
+        }
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let mediaType = info[.mediaType] as? String {
+            if mediaType == UTType.movie.identifier as String {
+                if let url = info[.mediaURL] as? URL {
+                    videoURL = url
+                    
+                    self.database?.uploadVideoToFirebase(videoURL: videoURL!) { success, error in
+                        if let error = error {
+                            // Handle the error
+                            print("Error uploading video: \(error)")
+                            self.showAlert(title: "Error", message: "Error uploading video")
+                        } else if success {
+                            // Upload successful
+                            print("Video uploaded successfully.")
+                            
+                            // Set the current date as the LastUploadDate user default
+                            UserDefaults.standard.set(Date(), forKey: "LastUploadDate")
+
+//                            self.showVideoDisplayView()
+                            self.database?.fetchVideosFromFirestore() { [weak self] fetchedVideos in
+                                // Assign fetched videos to self.videos
+                                self?.videos = fetchedVideos
+                                //            print("vidoes")
+                                //            print(self?.videos)
+                                
+                                // Reload table view data after fetching videos
+                                DispatchQueue.main.async {
+                                    self?.sotdTable.reloadData()
+                                }
+                                
+                                
+                            }
+                            
+                            //                                    self.sotdButton.
+                        } else {
+                            // Upload failed
+                            self.showAlert(title: "Error", message: "Failure to upload video.")
+                            print("Failed to upload video.")
+                        }
+                    }
+                }
+            }
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func showVideoDisplayView() {
+        self.database?.checkUserSubmittedVideoExists() { success, userName, videoRef in
+            if success {
+                self.videoDisplayView.frame = CGRect(x: 50, y: 50, width: 200, height: 200)
+                self.videoDisplayView.configure(with: videoRef!)
+                
+                self.view.addSubview(self.videoDisplayView)
+//                self.sotdButton.isHidden = true
+                self.hideButtonShowVideo()
+            }
+        }
+        
+    }
+    
+    func hideButtonShowVideo() {
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 2
+    }
+    
+     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            // Return your desired row height
+//            return 100  Adjust this according to your requirement
+         if indexPath.section == SECTION_UPLOAD {
+             guard let videoInfo = UserDefaults.standard.dictionary(forKey: "SOTDuserVideo"),
+                   let userName = videoInfo["userName"] as? String,
+                   let videoURLString = videoInfo["videoURL"] as? String,
+                   let videoURL = URL(string: videoURLString) else {
+                 return 80
+             }
+             return 285
+         } else if indexPath.section == SECTION_VIDEOS {
+             return 285
+         }
+         return 25
+        }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        print("section")
+//        print(section)
+//        return videos.count
+        if section == SECTION_UPLOAD {
+            return 1
+                
+        } else
+        
+        if section == SECTION_VIDEOS {
+            print(videos.count)
+            return videos.count
+        }
+        return 0
+        //        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SOTDTableViewCell", for: indexPath) as? SOTDTableViewCell else {
+        //             return UITableViewCell()
+        //         }
+        //
+        //        // Configure the cell...
+        //
+        //        return cell
+        
+        
+        
+        if indexPath.section == SECTION_UPLOAD {
+            //            let heroCell = tableView.dequeueReusableCell(withIdentifier: CELL_HERO, for: indexPath)
+            //            var content = heroCell.defaultContentConfiguration()
+            //            let hero = filteredHeroes[indexPath.row]
+            //            content.text = hero.name
+            //            content.secondaryText = hero.abilities
+            //            heroCell.contentConfiguration = content
+            //            return heroCell
+//            if let videoURLString = UserDefaults.standard.string(forKey: "userVideoURL"),
+//            UserDefaults.standard.set(nil, forKey: "SOTDuserVideo")
+            guard let videoInfo = UserDefaults.standard.dictionary(forKey: "SOTDuserVideo"),
+                  let userName = videoInfo["userName"] as? String,
+                  let videoURLString = videoInfo["videoURL"] as? String,
+                  let videoURL = URL(string: videoURLString) else {
+
+//                return
+                guard let uploadCell = tableView.dequeueReusableCell(withIdentifier: "UploadCell", for: indexPath) as? VideoTableViewCell else {
+                    return UITableViewCell()
+                }
+//                print("buttron")
+                uploadCell.hideVideo()
+                uploadCell.sotdButton.isHidden = false
+                uploadCell.usernameLabel.isHidden = true
+                
+                return uploadCell
+            }
+            print(videoURL)
+            
+            guard let videoCell = tableView.dequeueReusableCell(withIdentifier: "UploadCell", for: indexPath) as? VideoTableViewCell else {
+                return UITableViewCell()
+            }
+            videoCell.hideButton()
+            videoCell.videoDisplayView.isHidden = false
+            videoCell.usernameLabel.isHidden = false
+            videoCell.usernameLabelText(username: userName)
+//            videoCell.createVideoView()
+//            let videoData = videos[indexPath.row]
+                    print(videoCell.videoDisplayView)
+            print(videoURL)
+            videoCell.videoDisplayView.configure(with: videoURL)
+            
+//            videoCell.
+            
+            return videoCell
+            
+            
+//            let userName = SOTDuserVideo["userName"] as? String,
+//               let videoURLString = SOTDuserVideo["videoURL"] as? String,
+//                let videoURL = URL(string: videoURLString) {
+//                    // Use the userName and videoURL as needed
+//                    print("User Name: \(userName)")
+//                    print("Video URL: \(videoURL)")
+//                }
+            
+        } else 
+        if indexPath.section == SECTION_VIDEOS {
+            guard let videoCell = tableView.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath) as? VideoTableViewCell else {
+                return UITableViewCell()
+            }
+            
+            let videoData = videos[indexPath.row]
+            //        print(cell.videoDisplayView)
+            videoCell.videoDisplayView.configure(with: videoData.videoURL)
+            videoCell.usernameLabelText(username: videoData.userName)
+            print(videoData.userName)
+            
+            return videoCell
+        }
+        return UITableViewCell()
+    }
+        //        guard let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath) as? VideoTableViewCell else
+        //        {
+        ////            print("using default uitableviewcell")
+        //
+        //                    return UITableViewCell()
+        //                }
+        //
+        //                // Configure cell with video data
+        //                let videoData = videos[indexPath.row]
+        ////        print(cell.videoDisplayView)
+        //                cell.videoDisplayView.configure(with: videoData.videoURL)
+        //                // You can add more configuration for additional UI elements if needed
+        //
+        //                return cell
+        //            }
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+            // Check if the section is the one where editing is allowed
+            if indexPath.section == SECTION_UPLOAD {
+                guard let videoInfo = UserDefaults.standard.dictionary(forKey: "SOTDuserVideo") else {
+                    return .none
+                }
+                return .delete // Allow deletion for rows in section 1
+            } else {
+                return .none // Disable editing for other sections
+            }
+        }
+        
+        func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            if editingStyle == .delete {
+                // Handle row deletion here
+                // For example, remove the item from your data source and reload the table view
+                database?.deleteUserSOTDFromFirestore { error in
+                    if let error = error {
+                        print("Error deleting user SOTD from Firestore: \(error.localizedDescription)")
+                    } else {
+                        print("User SOTD deleted successfully from Firestore")
+                    }
+                }
+                self.database?.fetchVideosFromFirestore() { [weak self] fetchedVideos in
+                    // Assign fetched videos to self.videos
+                    self?.videos = fetchedVideos
+                    //            print("vidoes")
+                    //            print(self?.videos)
+                    
+                    // Reload table view data after fetching videos
+                    DispatchQueue.main.async {
+                        self?.sotdTable.reloadData()
+                    }
+                    
+                    
+                }
+                // Remove the item from your data source
+//                yourDataSourceArray.remove(at: indexPath.row)
+//                
+//                // Delete the row from the table view
+//                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        }
+    
+    }
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
+    
+    
+
